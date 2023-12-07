@@ -50,7 +50,7 @@ class Review:
         
 
 # instatiation 
-r1 = Review("John Doe", "Figo", 4)
+r1 = Review("John Doe", "Figo", 5)
 r3 = Review("Susan Millan", "New", 4)
 r4 = Review("Juliana Monroe", "qwertyuiop", 4)
 # r2 = Review("Peter", "Abc", "k")

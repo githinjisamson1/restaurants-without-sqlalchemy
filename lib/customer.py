@@ -45,6 +45,7 @@ class Customer:
         # newReview is automatically added to allReviews
         newReview = Review(self.full_name(), restaurant, rating)
         
+    # aggregate and association methods
     def num_reviews(self):
         return len(Review.allReviews)
     
@@ -57,10 +58,7 @@ class Customer:
         customersListComp = [item for item in Review.allCustomers if name in item]
         
         return customersListComp
-                
-                
-        
-                   
+                             
     # properties
     firstName = property(given_name, setFirstName)
     lastName = property(family_name, setLastName)
