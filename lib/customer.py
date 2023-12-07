@@ -1,12 +1,12 @@
 
 
 class Customer:
-    all = []
+    allCustomers = []
     
     def __init__(self, firstName, lastName):
         self.firstName = firstName
         self.lastName = lastName
-        Customer.addToAll(self)
+        Customer.addToAllCustomers(self)
         
     def given_name(self):
         return f"{self.firstName}"
@@ -18,10 +18,16 @@ class Customer:
         return f"{self.firstName} {self.lastName}"
     
     @classmethod
-    def addToAll(cls, customer):
-        cls.all.append(customer)
+    def addToAllCustomers(cls, customer):
+        cls.allCustomers.append(customer)
+        
+    @classmethod
+    def all(cls):
+        return cls.allCustomers
     
     
 c1 = Customer("John", "Doe")
+c2 = Customer("John", "Doe")
 print(c1.given_name())
-print([item.firstName for item in Customer.all])
+print([item.firstName for item in Customer.allCustomers])
+print(Customer.all())
