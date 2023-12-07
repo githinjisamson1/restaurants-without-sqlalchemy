@@ -3,6 +3,7 @@ class Review:
     # keep track of instances
     allReviews = []
     allCustomers = []
+    allRestaurants = []
     
     # Review constructor
     def __init__(self, customer, restaurant, rating):
@@ -13,6 +14,7 @@ class Review:
      
         Review.addToAllReviews(self)
         Review.addToAllCustomers(customer)
+        Review.addToAllRestaurants(restaurant)
         
     def rating(self):
         return self.rating
@@ -25,6 +27,7 @@ class Review:
     def all(cls):
         return cls.allReviews
     
+    # ORM
     def customer(self):
         return self._customer
     
@@ -36,12 +39,20 @@ class Review:
         # avoid duplicates
         if customer not in cls.allCustomers:
             cls.allCustomers.append(customer)
+    
+    @classmethod
+    def addToAllRestaurants(cls, restaurant):
+        # avoid duplicates
+        if restaurant not in cls.allRestaurants:
+            cls.allRestaurants.append(restaurant)
+            
+        
         
 
 # instatiation 
-r1 = Review("John", "Figo", 4)
-r3 = Review("John", "Figo", 4)
-r4 = Review("Juliana", "Figo", 4)
+r1 = Review("John Doe", "Figo", 4)
+r3 = Review("Susan Millan", "New", 4)
+r4 = Review("Juliana Monroe", "qwertyuiop", 4)
 # r2 = Review("Peter", "Abc", "k")
 
 # test workig

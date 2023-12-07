@@ -37,13 +37,30 @@ class Customer:
     def all(cls):
         return cls.allCustomers
     
+    # ORM
     def restaurants(self):
         return [item for item in Review.allRestaurants]
     
     def add_review(self, restaurant, rating):
         # newReview is automatically added to allReviews
         newReview = Review(self.full_name(), restaurant, rating)
+        
+    def num_reviews(self):
+        return len(Review.allReviews)
     
+    def find_by_name(self, name):        
+        for item in Review.allCustomers:
+            if item.lower() == name.lower():
+                return item
+            
+    def find_all_by_given_name(self, name):
+        customersListComp = [item for item in Review.allCustomers if name in item]
+        
+        return customersListComp
+                
+                
+        
+                   
     # properties
     firstName = property(given_name, setFirstName)
     lastName = property(family_name, setLastName)
@@ -62,3 +79,6 @@ print([item.firstName for item in Customer.allCustomers])
 print(Customer.all())
 c1.add_review("zxcbnm", 3.9)
 print(c1.restaurants())
+print(c1.num_reviews())
+print(c1.find_by_name("Juliana Monroe"))
+print(c1.find_all_by_given_name("John"))

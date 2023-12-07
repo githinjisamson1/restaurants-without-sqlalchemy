@@ -10,6 +10,7 @@ class Restaurant:
     def name(self):
         return self._name
     
+    # ORM
     def reviews(self):
         return [item for item in Review.allReviews]
     
@@ -19,7 +20,7 @@ class Restaurant:
 # instantiation
 r1 = Restaurant("Figo")
 
-# test working
+# test
 print(r1.name())
 print(r1.reviews())
 print(r1.customers())
